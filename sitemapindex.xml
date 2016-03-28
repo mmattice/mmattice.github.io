@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <sitemap>
+  <loc>https://mmattice.github.io/categories/asn1.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/categories/cat_commentary.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/categories/emv.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/categories/specifications.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/galleries/rss.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/rss.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/sitemap.xml</loc>
+  <lastmod>2016-03-28T02:59:00Z</lastmod>
+ </sitemap>
+</sitemapindex>
