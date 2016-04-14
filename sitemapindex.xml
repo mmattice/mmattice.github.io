@@ -7,30 +7,34 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://mmattice.github.io/categories/asn1.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://mmattice.github.io/categories/cat_commentary.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://mmattice.github.io/categories/emv.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://mmattice.github.io/categories/iso-8825.xml</loc>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://mmattice.github.io/categories/specifications.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>https://mmattice.github.io/galleries/rss.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <loc>https://mmattice.github.io/categories/x690.xml</loc>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://mmattice.github.io/rss.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://mmattice.github.io/sitemap.xml</loc>
-  <lastmod>2016-03-28T02:59:00Z</lastmod>
+  <lastmod>2016-04-14T03:47:00Z</lastmod>
  </sitemap>
 </sitemapindex>

@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Deep in the weeds (EMV)</title><link>https://mmattice.github.io/</link><description></description><atom:link rel="self" href="https://mmattice.github.io/categories/emv.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 28 Mar 2016 02:59:56 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ASN.1 and EMV</title><link>https://mmattice.github.io/posts/asn1-and-emv/</link><dc:creator>Mike Mattice</dc:creator><description>&lt;div&gt;&lt;p&gt;I've been tasked with making EMV work for the company I work for and more importantly, for our customers.  As I write python most of the time these days, I looked around for a tool to play with &lt;a class="reference external" href="https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf"&gt;ASN.1&lt;/a&gt;.  A stupidly quick Google landed me on &lt;a class="reference external" href="http://pyasn1.sf.net"&gt;pyasn1&lt;/a&gt;.  I made a run at using it to manipulate the BER-TLV the &lt;a class="reference external" href="https://www.emvco.com/download_agreement.aspx?id=654"&gt;EMV 4.3 Book 3&lt;/a&gt; requires.  This resulted in some difficulties.  I reported a &lt;a class="reference external" href="https://sourceforge.net/p/pyasn1/mailman/message/34776952/"&gt;bug&lt;/a&gt; via the mailing list.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Deep in the weeds (EMV)</title><link>https://mmattice.github.io/</link><description></description><atom:link rel="self" href="https://mmattice.github.io/categories/emv.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 14 Apr 2016 04:15:58 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>EMVCo Request</title><link>https://mmattice.github.io/posts/emvco-request/</link><dc:creator>Mike Mattice</dc:creator><description>&lt;div&gt;&lt;p&gt;I sent the following to EMVCo via &lt;a class="reference external" href="https://www.emvco.com/PublicComments.aspx"&gt;https://www.emvco.com/PublicComments.aspx&lt;/a&gt; on March 28th at about 0200UTC.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Table 35 &amp;amp; 36 refer to ISO/IEC 8825 which is also ITU-T Rec. X.690.  The X.690 spec available at &lt;a class="reference external" href="https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf"&gt;https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Specifically, the document states "According to ISO/IEC 8825, Table 36 defines the coding rules of the subsequent bytes of a BER-TLV tag when tag numbers ≥ 31 are used (that is, bits b5 - b1 of the first byte equal '11111')."&lt;/p&gt;
+&lt;p&gt;Please explain how 9F02 follows this?  The tag number for 9F02 is 2, which is clearly &amp;lt; 31.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;IEC/ISO 8255 states:&lt;/dt&gt;
+&lt;dd&gt;8.1.2.2 For tags with a number ranging from zero to 30 (inclusive), the identifier octets shall comprise a single octet encoded as follows:
+a) bits 8 and 7 shall be encoded to represent the class of the tag as specified in Table 1;
+b) bit 6 shall be a zero or a one according to the rules of 8.1.2.5;
+c) bits 5 to 1 shall encode the number of the tag as a binary integer with bit 5 as the most significant bit.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;That essentially tells me that every EMV tag that's two bytes with the second byte less than 31 is invalid and not capable of being encoded by BER.&lt;/p&gt;
+&lt;p&gt;I look forward to your response.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I figure two weeks is plenty of time for them to respond to this simple inquiry.  Unfortunately, I got the only the following in response:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;*****Please do not reply to this email*****&lt;/p&gt;
+&lt;p&gt;Dear Mike Mattice,&lt;/p&gt;
+&lt;p&gt;Thank you for submitting your comment to EMVCo. EMVCo has received your comment and will review and respond as deemed necessary.&lt;/p&gt;
+&lt;p&gt;Please note that EMVCo does not guarantee a response to public comments. EMVCo has implemented a new subscriber program through its website in order to facilitate dialog and interaction between EMVCo and its subscriber community. For more details, please find the service description in the EMVCo website "Contact Us" section.&lt;/p&gt;
+&lt;p&gt;For your reference, a copy of your comment is included below.&lt;/p&gt;
+&lt;p&gt;Thank you.&lt;/p&gt;
+&lt;p&gt;The EMVCo Communication Secretariat
+Message ID:1001&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;-------------------&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;Comment ID: 12005&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;-------------------&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Perhaps I should start a gofundme to become an EMVCo subscriber so I can get a guaranteed answer.&lt;/p&gt;
+&lt;p&gt;In other news I sent this to &lt;a class="reference external" href="mailto:customerservice@iso.org"&gt;customerservice@iso.org&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Are there repercussions for claiming to follow ISO standards (like 8825) but not actually doing so?&lt;/p&gt;
+&lt;p&gt;Thanks,
+Mike&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A couple days later I got:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ISO standards are voluntary, and as such, ISO does not carry out any assessment of conformity, nor does it monitor the implementation of its standards.&lt;/p&gt;
+&lt;p&gt;A number of ISO standards - mainly those concerned with health, safety or the environment - have been adopted in some countries as part of their regulatory framework, or are referred to in legislation for which they serve as the technical basis. However, such adoptions are decisions by the regulatory authorities or governments of the countries concerned. ISO itself does not regulate or legislate.&lt;/p&gt;
+&lt;p&gt;Cordially,&lt;/p&gt;
+&lt;p&gt;joseph martinez&lt;/p&gt;
+&lt;p&gt;Information Expert | marketing and sales services | marketing, communication &amp;amp; information | iso central secretariat | phone: +41 22 749 03 17&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So, no repercussions for saying you follow ISO-8825, but not actually doing so.&lt;/p&gt;&lt;/div&gt;</description><category>ASN.1</category><category>EMV</category><category>ISO-8825</category><category>specifications</category><category>X.690</category><guid>https://mmattice.github.io/posts/emvco-request/</guid><pubDate>Thu, 14 Apr 2016 04:01:08 GMT</pubDate></item><item><title>ASN.1 and EMV</title><link>https://mmattice.github.io/posts/asn1-and-emv/</link><dc:creator>Mike Mattice</dc:creator><description>&lt;div&gt;&lt;p&gt;I've been tasked with making EMV work for the company I work for and more importantly, for our customers.  As I write python most of the time these days, I looked around for a tool to play with &lt;a class="reference external" href="https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf"&gt;ASN.1&lt;/a&gt;.  A stupidly quick Google landed me on &lt;a class="reference external" href="http://pyasn1.sf.net"&gt;pyasn1&lt;/a&gt;.  I made a run at using it to manipulate the BER-TLV the &lt;a class="reference external" href="https://www.emvco.com/download_agreement.aspx?id=654"&gt;EMV 4.3 Book 3&lt;/a&gt; requires.  This resulted in some difficulties.  I reported a &lt;a class="reference external" href="https://sourceforge.net/p/pyasn1/mailman/message/34776952/"&gt;bug&lt;/a&gt; via the mailing list.&lt;/p&gt;
 &lt;p&gt;Thinks have changed in the past two months.&lt;/p&gt;
 &lt;p&gt;pyasn1 moved to &lt;a class="reference external" href="https://github.com/etingof/pyasn1"&gt;github&lt;/a&gt;.  I'd built some work arounds and submitted a &lt;a class="reference external" href="https://github.com/etingof/pyasn1/pull/5"&gt;PR&lt;/a&gt;.  I ended up splitting the PR into &lt;a class="reference external" href="https://github.com/etingof/pyasn1/pull/6"&gt;another&lt;/a&gt; because that one could break extended tags everywhere.  The issues I saw with the EMV tags and how they decoded are in that first PR, and also in &lt;a class="reference external" href="https://github.com/mmattice/emv-asn1"&gt;emv-asn1&lt;/a&gt;, which I wrote with my assumptions I'd codified in &lt;a class="reference external" href="https://github.com/mmattice/pyasn1/tree/bugfix/emv"&gt;bugfix/emv&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I did these things because I was sure EMVCo would surely stick to standards and that they had interpreted the ASN.1 spec correctly.  I now know I was wrong.&lt;/p&gt;
