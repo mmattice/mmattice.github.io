@@ -1,4 +1,4 @@
-Sitemap: https://mmattice.github.io/sitemapindex.xml
+Sitemap: https://blog.mattice.org/sitemapindex.xml
 
 User-Agent: *
-Host: mmattice.github.io
+Host: blog.mattice.org
