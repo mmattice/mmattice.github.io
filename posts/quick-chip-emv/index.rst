@@ -19,4 +19,6 @@ Reading the specification, it seems that the terminal's EMV kernel tells the car
 
 I started to wonder why Visa didn't come up with this years ago for everyone else that does EMV in the world. After reading the spec, it dawned on me.  This spec only works for *ONLINE* transactions.  The rest of the world used a lot of offline authentications because they've historically had to pay for individual phone calls and those communications were less reliable than the always online terminals the US has used for so many years.
 
-What I find interesting is that Visa didn't bother fixing this problem 10 years ago for the UK.  Apparently the US consumer can't have anything get in the way of charging up their credit cards.
+One of the things that I find interesting is that Visa didn't bother fixing this problem 10 years ago for the UK.  Apparently the US consumer can't have anything get in the way of charging up their credit cards.
+
+If we're back to a unidirectional communication from card to issuer, why wouldn't private keys loaded into something like `Only Coin <http://onlycoin.com>`_ work?  With some detection built in, it could rotate its magstripe every time it was swiped to the next rolling code, just like NFC based credit cards have done for a few years now.  The cards would be more expensive, but maybe not extremely so at scale, and we could all go back to "normal" swipes.  Just a thought.
