@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://blog.mattice.org/</loc>
-  <lastmod>2016-04-17T04:43:00Z</lastmod>
+  <lastmod>2016-04-18T04:24:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.mattice.org/2016/</loc>
@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>https://blog.mattice.org/archive.html</loc>
-  <lastmod>2016-04-17T04:43:00Z</lastmod>
+  <lastmod>2016-04-20T03:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.mattice.org/categories/</loc>
-  <lastmod>2016-04-17T04:43:00Z</lastmod>
+  <lastmod>2016-04-20T03:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.mattice.org/categories/asn1/</loc>
@@ -42,8 +42,24 @@
   <lastmod>2016-04-17T04:43:00Z</lastmod>
  </url>
  <url>
+  <loc>https://blog.mattice.org/categories/tech/</loc>
+  <lastmod>2016-04-20T02:44:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.mattice.org/categories/visa/</loc>
+  <lastmod>2016-04-20T03:52:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://blog.mattice.org/categories/x690/</loc>
   <lastmod>2016-04-17T04:43:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.mattice.org/galleries/</loc>
+  <lastmod>2016-04-20T02:44:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.mattice.org/galleries/plantatarium%20liner/</loc>
+  <lastmod>2016-04-20T02:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.mattice.org/posts/asn1-and-emv/</loc>
@@ -52,5 +68,13 @@
  <url>
   <loc>https://blog.mattice.org/posts/emvco-request/</loc>
   <lastmod>2016-04-17T04:43:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.mattice.org/posts/quick-chip-emv/</loc>
+  <lastmod>2016-04-20T03:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.mattice.org/posts/quick-emv/</loc>
+  <lastmod>2016-04-20T02:44:00Z</lastmod>
  </url>
 </urlset>

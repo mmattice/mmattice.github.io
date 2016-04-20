@@ -1,7 +1,7 @@
 .. title: ASN.1 and EMV
 .. slug: asn1-and-emv
 .. date: 2016-03-27 23:41:16 UTC
-.. tags: ASN.1,EMV,specifications
+.. tags: ASN.1,EMV,specifications,tech
 .. category: Commentary
 .. link: 
 .. description: 
