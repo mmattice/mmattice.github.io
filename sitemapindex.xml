@@ -7,50 +7,58 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://blog.mattice.org/categories/asn1.xml</loc>
-  <lastmod>2016-04-20T02:44:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/cat_commentary.xml</loc>
-  <lastmod>2016-04-20T04:41:00Z</lastmod>
+  <lastmod>2016-04-20T04:44:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/emv.xml</loc>
-  <lastmod>2016-04-20T04:41:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://blog.mattice.org/categories/emvco.xml</loc>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/iso-8825.xml</loc>
-  <lastmod>2016-04-20T02:44:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/specifications.xml</loc>
-  <lastmod>2016-04-20T02:44:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/tech.xml</loc>
-  <lastmod>2016-04-20T04:41:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/visa.xml</loc>
-  <lastmod>2016-04-20T04:41:00Z</lastmod>
+  <lastmod>2016-04-20T04:44:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/x690.xml</loc>
-  <lastmod>2016-04-20T02:44:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://blog.mattice.org/galleries/iso7816/rss.xml</loc>
+  <lastmod>2016-05-02T15:56:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/galleries/plantatarium%20liner/rss.xml</loc>
-  <lastmod>2016-04-20T02:44:00Z</lastmod>
+  <lastmod>2016-05-02T15:56:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/galleries/rss.xml</loc>
-  <lastmod>2016-04-20T02:44:00Z</lastmod>
+  <lastmod>2016-05-02T15:56:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/rss.xml</loc>
-  <lastmod>2016-04-20T04:41:00Z</lastmod>
+  <lastmod>2016-05-02T15:48:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/sitemap.xml</loc>
-  <lastmod>2016-04-20T04:41:00Z</lastmod>
+  <lastmod>2016-05-02T15:56:00Z</lastmod>
  </sitemap>
 </sitemapindex>

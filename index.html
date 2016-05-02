@@ -10,7 +10,7 @@
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://blog.mattice.org/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/quick-chip-emv/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/teasertest/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -60,7 +60,49 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/quick-chip-emv/" class="u-url">Quick Chip EMV</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/teasertest/" class="u-url">teasertest</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Mike Mattice
+            </span></p>
+            <p class="dateline"><a href="posts/teasertest/" rel="bookmark"><time class="published dt-published" datetime="2016-05-02T15:33:15Z" title="2016-05-02 15:33">2016-05-02 15:33</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Write your post here.</p>
+<!-- TEASER_END
+
+foo bar
+
+adam apple -->
+<p>baz</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/emvcos-response/" class="u-url">EMVCo's response</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Mike Mattice
+            </span></p>
+            <p class="dateline"><a href="posts/emvcos-response/" rel="bookmark"><time class="published dt-published" datetime="2016-05-02T15:13:33Z" title="2016-05-02 15:13">2016-05-02 15:13</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>A little more than a month later, I got a response from EMVCo to <a class="reference external" href="posts/emvco-request">my request</a>.  It's about what I expected.  I'm not sure they've read their own specification.</p>
+<!-- TEASER_END -->
+<!--  -->
+<blockquote>
+<p>Response:</p>
+<p>Thank you for your query.</p>
+<p>There is a slight difference between ISO and EMV tag coding. According to the EMV Book3 requirement, bit7 ~ bit1 of the first byte would not be part of tag number when these bits equals '11111', the tag number begins at the second byte in this case.</p>
+<p>As the example tag "9F02", is an valid EMV tag, but not an ISO tag. This also means that you might consider the AIP and Amount, Authorised (numeric) to both have tag number 02; it is not helpful to refer to manage tags in this way, and hence EMV uses the full tag throughout.</p>
+<p>Sincerely,</p>
+<p>The EMVCo Secretariat</p>
+<p>Message ID: 1007</p>
+</blockquote>
+<p>For starters, bit7 ~ bit1?  Suddenly it's grown a couple.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/quick-chip-emv/" class="u-url">Quick Chip EMV</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Mike Mattice
