@@ -1,7 +1,7 @@
 .. title: EMVCo Request
 .. slug: emvco-request
 .. date: 2016-04-14 04:01:08 UTC
-.. tags: ASN.1,EMV,specifications,ISO-8825,X.690,tech
+.. tags: ASN.1,EMV,EMVCo,specifications,ISO-8825,X.690,tech
 .. category: Commentary
 .. link: 
 .. description: 

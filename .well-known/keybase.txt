@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/mmattice
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.mattice.org
+  * I am mmattice (https://keybase.io/mmattice) on keybase.
+  * I have a public key with fingerprint B148 B5B8 B7E9 10CF 6150  442A 655F E1FE 88E6 0DDD
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010169fbbc8e2b6e5f409b79284a7804b9a49adc34396d98b45326b2560e82c07ece0a",
+            "fingerprint": "b148b5b8b7e910cf6150442a655fe1fe88e60ddd",
+            "host": "keybase.io",
+            "key_id": "655fe1fe88e60ddd",
+            "kid": "010169fbbc8e2b6e5f409b79284a7804b9a49adc34396d98b45326b2560e82c07ece0a",
+            "uid": "4708949e09048b2cac6579fac5c43a19",
+            "username": "mmattice"
+        },
+        "service": {
+            "hostname": "blog.mattice.org",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1463433378,
+    "expire_in": 157680000,
+    "prev": "b86a2a3033fa17861ec3e46deb872b680de11b63402d04631c006a5db03e6a92",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owJ4nK1Sa0wUVxhdBLSglkLTkGpryWDxRfHOe2alsjXdNLUSwEdbWtvNnZk7y5Rl
+d9mdRd4xEl7GBgvEiqAQsJoiRcSWlgSpgfBoMCilPBrjg0qhQqlAikYU7Ayh//qz
+98+997vnnHvOl+/4Wm+DvxeyjCwWjK295dVzXzB8YOTaMjDBIaVhxgwsES1tyCYh
+t2pJVCTMiAEc4AwvC4LIIUJgEC1TgBdYnuAoyHKAEnhI8VASSYrkGYnnBIomCUYg
+aAYgjhABi0QEIBaOyYrdilxOl2JXNVkBpziBFjiBRTwORJnBaUBRBGRoWka4jDgO
+MUCSJI2Y4HDrDM2cAN0oQnFoNe1iWbL3H/j/2bdnSY5iAcdTPAI80IwTIhQZmuVl
+KNIiRUKc14Fu5LLDJKShk5KgqioiwrLCMa2aoh+1xupJlhGCzWGNWEZFOFxWje90
+OVSH6LBprwmq6nQbdbaa5tThh5BgWRayCIpd0nqpMVKQy6047JgR15CiqujKOMVo
+kUiS5cIxlOpUXMii6AiaZTigLf0flKI74JiDkIAkIEkZ4izH4EgkEcVISOBYrWMc
+kBCOC5oaICSgqeIiAAykJQGQiIE8genZku0OzEhpPqFV03QrVjtUPS4tuH/hild8
+DF7+hpW+K/QpM/j7vfDv6N17ELD4esqLi1nnHnX4tM/5BFvah7fs6wsK+Xb/xzVm
+quzt7tjMS+N7MnPKz2VHFmeXzPgHDLVlPe/7pa95zcripsEcj8+FsN6t9R7PZP6j
+glGvq9GzXa9FypExD7sXiq/kNLXkbq66XTTx5rZRz53B6v62nd73v9gQ1cUKtz3v
+M7jPwgbuXu/eBy2Nx/KPl/ePtcr7ys0508fIA1JC4byt0laJzVRGTU/d+cSbDwsv
+ObMxc9Pi4fIWZTT7IqxeuAyn9pwo7S4eSk+f7s89G4Ln5HWFyavBO3f/Nq0i3LaN
+732W/eTzxsMzf04mOEsn7Cr/9fSB0J51sad2Xac+PNixe/hh8tlNp2KzuiYNa/YP
+BCiF3n6tRzqs20viY9oOtZ7eVbGjcZ1hFqZVjT91ZV/t20Fe72Q6B6Jjmrvn49Iq
+kidqV39/d4uzrnbKFFq9defAiDk3KfNxR+yrQZ+qttCjQfke7siqvuEaU0xcUdL5
+0/gvYyGm38O7Q2/NjLwcx8Sdnwv4NWjv+G5T1pUTDfEf3Wxaf2Pswpm/jI/LzAZQ
++txQwWxm8bPoGxe3vXv0x6jLc7Oz8sD27xqq4KX4ztSvAtno3qmK+oy8n5uvDV8L
+uRmYWt8TBKKJ396wmukfavLqulJObg5+xjqfBU7Nv5RuKvP+5klRov2tP9Y3CMHD
+zRElT8tnTv4U2z5YV+v3Dx9YzUA=
+=FZo8
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mmattice
+
+==================================================================
+
