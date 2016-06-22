@@ -2,28 +2,25 @@
 <html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://blog.mattice.org/posts/emvcos-response/">
+<base href="https://blog.mattice.org/posts/emv-should-be-less-confusing-for-all/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EMVCo's response | Deep in the weeds</title>
+<title>EMV should be less confusing for all | Deep in the weeds</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://blog.mattice.org/posts/emvcos-response/">
+<link rel="canonical" href="https://blog.mattice.org/posts/emv-should-be-less-confusing-for-all/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Mike Mattice">
-<link rel="prev" href="../quick-chip-emv/" title="Quick Chip EMV" type="text/html">
-<link rel="next" href="../emv-should-be-less-confusing-for-all/" title="EMV should be less confusing for all" type="text/html">
+<link rel="prev" href="../emvcos-response/" title="EMVCo's response" type="text/html">
 <meta property="og:site_name" content="Deep in the weeds">
-<meta property="og:title" content="EMVCo's response">
-<meta property="og:url" content="https://blog.mattice.org/posts/emvcos-response/">
-<meta property="og:description" content="A little more than a month later, I got a response from EMVCo to my request.  It's about what I expected.  I'm not sure they've read their own specification.
+<meta property="og:title" content="EMV should be less confusing for all">
+<meta property="og:url" content="https://blog.mattice.org/posts/emv-should-be-less-confusing-for-all/">
+<meta property="og:description" content="Excuse me for a moment while I do a happy dance for effecting change.  It's a small victory, but...
 
-
-
-Response:
-Thank you for your query.
-The">
+Mr. Mattice,
+Thank you for your comment.
+We acknowledge that the EMVCo tag definition is not fully ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-05-02T15:13:33Z">
+<meta property="article:published_time" content="2016-06-22T16:38:30Z">
 <meta property="article:tag" content="ASN.1">
 <meta property="article:tag" content="EMV">
 <meta property="article:tag" content="EMVCo">
@@ -83,13 +80,13 @@ The">
         <div class="row">
             
             
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">EMVCo's response</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">EMV should be less confusing for all</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                     Mike Mattice
             </span></p>
-            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-05-02T15:13:33Z" itemprop="datePublished" title="2016-05-02 15:13">2016-05-02 15:13</time></a></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-06-22T16:38:30Z" itemprop="datePublished" title="2016-06-22 16:38">2016-06-22 16:38</time></a></p>
             
         <p class="sourceline"><a href="index.rst" id="sourcelink">Source</a></p>
 
@@ -98,31 +95,15 @@ The">
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>A little more than a month later, I got a response from EMVCo to <a class="reference external" href="../emvco-request">my request</a>.  It's about what I expected.  I'm not sure they've read their own specification.</p>
-<!-- TEASER_END -->
-<!--  -->
+<p>Excuse me for a moment while I do a happy dance for effecting change.  It's a small victory, but...</p>
 <blockquote>
-<p>Response:</p>
-<p>Thank you for your query.</p>
-<p>There is a slight difference between ISO and EMV tag coding. According to the EMV Book3 requirement, bit7 ~ bit1 of the first byte would not be part of tag number when these bits equals '11111', the tag number begins at the second byte in this case.</p>
-<p>As the example tag "9F02", is an valid EMV tag, but not an ISO tag. This also means that you might consider the AIP and Amount, Authorised (numeric) to both have tag number 02; it is not helpful to refer to manage tags in this way, and hence EMV uses the full tag throughout.</p>
-<p>Sincerely,</p>
-<p>The EMVCo Secretariat</p>
-<p>Message ID: 1007</p>
+<p>Mr. Mattice,</p>
+<p>Thank you for your comment.
+We acknowledge that the EMVCo tag definition is not fully ISO compliant.  For clarification We will remove the reference to ISO 8825 in the next version of the specifications.</p>
+<p>Sincerely,
+The EMVCo Secretariat (on behalf of L2WG)</p>
 </blockquote>
-<p>For starters, bit7 ~ bit1?  I'd say it's grown a bit, but it's grown two.  Perhaps they're confused and referring to the second byte.  Who knows.</p>
-<p>My response to them (Comment ID 12106):</p>
-<blockquote>
-<p>If there is a slight difference, then that difference should be documented instead of the ISO-8825 spec quoted directly by Annex B1.  Repeatedly calling your data transport method BER-TLV, quoting ISO-8825 and mis-implementing ISO-7816 (which clarifies the above better than 8825 and is quite specific to ICCs) when both ISO standards are referred to as 'Normative References' is confusing to implementation teams and is blatantly false.</p>
-<blockquote>
-<cite>According to ISO/IEC 8825, Table 36 defines the coding rules of the subsequent bytes of a BER-TLV tag when tag numbers &gt;= 31 are used (that is, bits b5 - b1 of the first byte equal '11111')</cite>
-</blockquote>
-<p>This is an exact quote (barring the inability to reproduce the greater than or equal to) of your spec.  "When tag numbers &gt;= 31 are used".  That means that 9F02 should have a tag number &gt;= 31.  It does not.  If you want to go the route that '9F02' is &gt;= 31, then ALL EMV tags are &gt;= 31.</p>
-<p>I understand the desire to stick to ones guns about something that affects billions of devices in the field, but this is not assisting anyone trying to implement your broken specification.</p>
-<p>Sincerely,</p>
-<p>Mike Mattice</p>
-</blockquote>
-<p>I very surprised I got a response at all, but not surprised they continue to misunderstand what they, themselves, have published.  They have an internalized idea of what it should communicate, but that doesn't match what's on the paper.  Having had to work with other vendors and their broken specs before, I'm not sure why it still surprises me when this happens.</p>
+<p>I'm glad they've admitted to this.  I hope it makes someone else's job easier someday.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
@@ -136,10 +117,7 @@ The">
         </ul>
 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../quick-chip-emv/" rel="prev" title="Quick Chip EMV">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../emv-should-be-less-confusing-for-all/" rel="next" title="EMV should be less confusing for all">Next post</a>
+                <a href="../emvcos-response/" rel="prev" title="EMVCo's response">Previous post</a>
             </li>
         </ul></nav></aside></article>
 </div>
