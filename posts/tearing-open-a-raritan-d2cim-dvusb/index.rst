@@ -4,7 +4,7 @@
 .. tags: tech,reverse engineering,hardware
 .. category: 
 .. link: 
-.. description: 
+.. description: Reverse Engineering a KVM adapter
 .. type: text
 
 I got a KX2-416 from a popular auction site on the internet a few days ago plus a cheap (seemingly unused to boot) D2CIM-DVUSB from another seller.  The DVUSB arrived well before the 416 and I got curious, so I opened it up to see what makes it tick.
