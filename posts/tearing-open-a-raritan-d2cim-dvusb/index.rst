@@ -1,7 +1,7 @@
 .. title: Tearing open a Raritan D2CIM-DVUSB
 .. slug: tearing-open-a-raritan-d2cim-dvusb
 .. date: 2017-04-22 17:39:14 UTC
-.. tags: tech,reverse engineering,hardware
+.. tags: tech,reverse engineering,hardware,d2cim-dvusb
 .. category: 
 .. link: 
 .. description: Reverse Engineering a KVM adapter
