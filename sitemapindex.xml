@@ -14,6 +14,10 @@
   <lastmod>2017-04-23T19:28:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://blog.mattice.org/categories/d2cim-dvusb.xml</loc>
+  <lastmod>2017-04-26T22:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://blog.mattice.org/categories/emv.xml</loc>
   <lastmod>2017-04-23T19:28:00Z</lastmod>
  </sitemap>
@@ -23,7 +27,7 @@
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/hardware.xml</loc>
-  <lastmod>2017-04-23T22:36:00Z</lastmod>
+  <lastmod>2017-04-26T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/iso-8825.xml</loc>
@@ -31,7 +35,7 @@
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/reverse-engineering.xml</loc>
-  <lastmod>2017-04-23T22:36:00Z</lastmod>
+  <lastmod>2017-04-26T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/specifications.xml</loc>
@@ -39,7 +43,7 @@
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/tech.xml</loc>
-  <lastmod>2017-04-23T22:36:00Z</lastmod>
+  <lastmod>2017-04-26T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/categories/visa.xml</loc>
@@ -51,10 +55,10 @@
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/rss.xml</loc>
-  <lastmod>2017-04-23T22:36:00Z</lastmod>
+  <lastmod>2017-04-26T22:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.mattice.org/sitemap.xml</loc>
-  <lastmod>2017-04-24T03:35:00Z</lastmod>
+  <lastmod>2017-04-26T22:39:00Z</lastmod>
  </sitemap>
 </sitemapindex>
