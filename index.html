@@ -10,7 +10,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
 <link rel="canonical" href="https://blog.mattice.org/">
-<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/raritan-is-helping-us-out-some/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/interesting-ish-finds/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -60,7 +60,50 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/raritan-is-helping-us-out-some/" class="u-url">Raritan is helping us out some</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/interesting-ish-finds/" class="u-url">Interesting-ish finds</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Mike Mattice
+            </span></p>
+            <p class="dateline"><a href="posts/interesting-ish-finds/" rel="bookmark"><time class="published dt-published" datetime="2017-05-04T22:31:15Z" title="2017-05-04 22:31">2017-05-04 22:31</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I found out from a fellow Techlahoman on the <a class="reference external" href="https://techlahoma.slack.com">slack</a> that those connectors in <a class="reference external" href="posts/raritan-is-helping-us-out-some">my last post</a> are JST-SSH.  Luckily, <a class="reference external" href="https://digikey.com">Digikey</a> carries both genders of these connectors. They also carry some <a class="reference external" href="https://www.digikey.com/product-detail/en/jst-sales-america-inc/ASSHSSH28K305/455-3077-ND/6009453">SSH jumpers</a> that can be hacked up for our purposes.  I ended up <a class="reference external" href="https://youtu.be/wdoX2__H14s">soldering</a> a 6 pin header onto the board to match the other JST connectors.</p>
+<p>I also prepped a few sets of cables with JST "connector housings" on one end and male header pins on the other end.</p>
+<a class="reference external image-reference" href="images/d2cim-dvusb_JST_Cables.jpg"><img alt="D2CIM-DVUSB JST Cables" class="align-center" src="images/d2cim-dvusb_JST_Cables.thumbnail.jpg"></a>
+<p>In other news, in doing some digging, it appears as though the Cypress CY7C68013 on this board is connected A0-A15 to the flash chip, which has 8 times the address space of the 8051 in the 68013.  To that end, they have some GPIO stuck to the highest three bits of the flash.</p>
+<table border="1" class="docutils align-center">
+<caption>U1&lt;-&gt;U2 connections</caption>
+<colgroup>
+<col width="53%">
+<col width="47%">
+</colgroup>
+<thead valign="bottom"><tr>
+<th class="head">U1</th>
+<th class="head">U2</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>PD5/FD13</td>
+<td>A16</td>
+</tr>
+<tr>
+<td>PD6/FD14</td>
+<td>A17</td>
+</tr>
+<tr>
+<td>PD7/FD15</td>
+<td>A18</td>
+</tr>
+</tbody>
+</table>
+<p>The EA pin of the 68013 is also tied strongly to ground, which means it's using the internal 16KB of RAM is being used for code and data.  I also found that the I2C bus was connected to a 64KB SOIC flash chip.  I hot-aired that off the board and <a class="reference external" href="https://youtu.be/QAESOijbWL4">wired it up</a> to some ribbon cable with a 10pin IDC connector on it that fits directly into my BusPirate 3.6.</p>
+<a class="reference external image-reference" href="images/d2cim-dvusb_BP_flash.jpg"><img alt="D2CIM-DVUSB Bus Pirate flash assembly" class="align-center" src="images/d2cim-dvusb_BP_flash.thumbnail.jpg"></a>
+<p>Dumping the chip seems to give me 4 copies of the same 16KB of data.  I'm not sure if they've programmed it 4 times or if I have the part number wrong and it's only a 16KB flash chip.  In either case, I'll be trying to determine what the code is doing.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/raritan-is-helping-us-out-some/" class="u-url">Raritan is helping us out some</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Mike Mattice
