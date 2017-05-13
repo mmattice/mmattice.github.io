@@ -15,7 +15,7 @@
    :alt: CNN website screenshot
    :align: center
 
-This is totally reasonable.  Put that thing that my kill people _today_ over there on the right, but let's definitely hilight the fact that we haven't heard from the power couple on the left.  Good plan.
+This is totally reasonable.  Put that thing that might kill people _today_ over there on the right, but let's definitely hilight the fact that we haven't heard from the power couple on the left.  Good plan.
 
 Everybody on infosec twitter is going back and forth about patchability of the systems in hospitals that got infected.  I only have second-hand knowledge of this difficulty, but at some point, this seems like it's a deeper version of `left-pad <https://qz.com/646467/how-one-programmer-broke-the-internet-by-deleting-a-tiny-piece-of-code/>`_.
 
