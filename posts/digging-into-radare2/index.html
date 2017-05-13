@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Taking a look at reversing some stm32 firmware">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digging into radare2 | Deep in the weeds</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://blog.mattice.org/posts/digging-into-radare2/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Mike Mattice">
+<meta name="robots" content="noindex">
+<meta property="og:site_name" content="Deep in the weeds">
+<meta property="og:title" content="Digging into radare2">
+<meta property="og:url" content="https://blog.mattice.org/posts/digging-into-radare2/">
+<meta property="og:description" content="Taking a look at reversing some stm32 firmware">
+<meta property="og:image" content="https://blog.mattice.org/images/avatar.jpg">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-05-11T20:09:27Z">
+<meta property="article:tag" content="radare2">
+<meta property="article:tag" content="reverse engineering">
+<meta property="article:tag" content="tech">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mmattice">
+<meta name="twitter:creator" content="@mmattice">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://blog.mattice.org/">
+
+                <span id="blog-title">Deep in the weeds</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Digging into radare2</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    Mike Mattice
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-05-11T20:09:27Z" itemprop="datePublished" title="2017-05-11 20:09">2017-05-11 20:09</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I've become a fan of <a class="reference external" href="https://www.youtube.com/user/micahjd/">scanlime</a>.  She is currently working on a collection of bots to let people on the internet follow her cat, Tuco, around her home/shop.  In support of that, she's REing a <a class="reference external" href="https://www.amazon.com/gp/product/B00Z9TXRZ2/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B00Z9TXRZ2&amp;linkCode=as2&amp;tag=ditwok-20&amp;linkId=c6c472da15db2a2a0021e79f36d60aac">Feiyu Tech gimbal</a> for a gopro to figure out how to make it accept commands instead of PPM pulses (RC controller signals).</p>
+<p>Between herself and a cadre of people that watch her live stream all of this, the firmware update format from the vendor has been reversed and can be unpacked and decrypted with <a class="reference external" href="https://github.com/scanlime/fygimbal">some utilities</a> she's built.</p>
+<p>She tears apart binaries with <a class="reference external" href="https://www.hex-rays.com/products/ida/index.shtml">IDA Pro</a>.  That costs some not insignificant amount of cash for toying around at home.  Especially when you're REing ARM binaries like she is now (pretty much, non-x86 requires IDA Pro).</p>
+<p>Enter <a class="reference external" href="https://github.com/radare/radare2">radare2</a>.  It's a suite of tools to used to RE.  It's open source and apt-get installable.</p>
+<p>In <a class="reference external" href="https://www.youtube.com/watch?v=lft9dYWKgOs">one of her streams</a>, the unpacked firmware was loaded up in IDA and annotated a bit.  My plan is to figure out how to do those things in this OSS tool.</p>
+<hr class="docutils">
+<p>To get started, the chip on each of the three axes is a stm32f103c8t6.
+It's helpful to have a few manuals around on this thing.</p>
+<ul class="simple">
+<li>Reference Manual (<a class="reference external" href="../../files/en.CD00171190.pdf">RM</a>) <a class="footnote-reference" href="#id4" id="id1">[1]</a>
+</li>
+<li>Programming Manual (<a class="reference external" href="../../files/en.CD00228163.pdf">PM</a>) <a class="footnote-reference" href="#id5" id="id2">[2]</a>
+</li>
+<li>Flash Programming Manual (<a class="reference external" href="../../files/en.CD00233952.pdf">FPM</a>) <a class="footnote-reference" href="#id6" id="id3">[3]</a>
+</li>
+</ul>
+<p>We have to make a starting assumption that the binary we get from unpacking the image from Feiyu is one continuous blob.</p>
+<pre class="literal-block">
+$ xxd -g 1 mcu0.bin | head
+00000000: 18 1c 00 20 ff d2 00 08 21 c5 00 08 23 c5 00 08  ... ....!...#...
+00000010: 25 c5 00 08 27 c5 00 08 29 c5 00 08 00 00 00 00  %...'...).......
+00000020: 00 00 00 00 00 00 00 00 00 00 00 00 2d c5 00 08  ............-...
+00000030: 2b c5 00 08 00 00 00 00 2f c5 00 08 31 c5 00 08  +......./...1...
+00000040: 45 c5 00 08 47 c5 00 08 49 c5 00 08 4b c5 00 08  E...G...I...K...
+00000050: 4d c5 00 08 4f c5 00 08 51 c5 00 08 53 c5 00 08  M...O...Q...S...
+00000060: 55 c5 00 08 57 c5 00 08 59 c5 00 08 5b c5 00 08  U...W...Y...[...
+00000070: 5d c5 00 08 61 c5 00 08 63 c5 00 08 67 c5 00 08  ]...a...c...g...
+00000080: 69 c5 00 08 6b c5 00 08 6d c5 00 08 99 c5 00 08  i...k...m.......
+00000090: 9b c5 00 08 9d c5 00 08 9f c5 00 08 c9 c5 00 08  ................
+</pre>
+<p>This is the beginning of the file.  According to the <a class="reference external" href="../../files/en.CD00171190.pdf">RM</a>, page 60:</p>
+<pre class="literal-block">
+..., the CPU fetches the top-of-stack value from address 0x0000 0000, then starts code execution from the boot memory starting from 0x0000 0004.
+</pre>
+<p>That means the 32bit address in the 2nd 4 bytes above are our entry point.  Let's load that address up in <cite>r2</cite> and see what happens.</p>
+<img alt="/images/r2-l0x8000000-d0x800d2fe.png" src="../../images/r2-l0x8000000-d0x800d2fe.png"><p>That doesn't look right at all.  Lot's of moves of r0 into r0, plus they're all 0x0000.  That's not our entry point.  Micah ended up looking for round numbers of offsets to load the code at.  She happened upon <cite>0x4000</cite> as an offset, and that's supported by the <a href="#id7"><span class="problematic" id="id8">FM_</span></a>, page 7 which has a table on it showing the first 4 sectors of flash are 16Kbyte in size.</p>
+<img alt="/images/r2-l0x8004000-d0x800d2fe.png" src="../../images/r2-l0x8004000-d0x800d2fe.png"><p>The nop-sled looks a little weird, but it's at least some code.  The dump offset is 1 off the value in the Reset vector, but that's because</p>
+<hr class="docutils">
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top"><tr>
+<td class="label"><a class="fn-backref" href="#id1">[1]</a></td>
+<td><a class="reference external" href="http://www.st.com/content/ccc/resource/technical/document/reference_manual/59/b9/ba/7f/11/af/43/d5/CD00171190.pdf/files/CD00171190.pdf/jcr:content/translations/en.CD00171190.pdf">http://www.st.com/content/ccc/resource/technical/document/reference_manual/59/b9/ba/7f/11/af/43/d5/CD00171190.pdf/files/CD00171190.pdf/jcr:content/translations/en.CD00171190.pdf</a></td>
+</tr></tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top"><tr>
+<td class="label"><a class="fn-backref" href="#id2">[2]</a></td>
+<td><a class="reference external" href="http://www.st.com/content/ccc/resource/technical/document/programming_manual/5b/ca/8d/83/56/7f/40/08/CD00228163.pdf/files/CD00228163.pdf/jcr:content/translations/en.CD00228163.pdf">http://www.st.com/content/ccc/resource/technical/document/programming_manual/5b/ca/8d/83/56/7f/40/08/CD00228163.pdf/files/CD00228163.pdf/jcr:content/translations/en.CD00228163.pdf</a></td>
+</tr></tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top"><tr>
+<td class="label"><a class="fn-backref" href="#id3">[3]</a></td>
+<td><a class="reference external" href="http://www.st.com/content/ccc/resource/technical/document/programming_manual/f7/7e/b9/a8/31/58/41/7b/CD00233952.pdf/files/CD00233952.pdf/jcr:content/translations/en.CD00233952.pdf">http://www.st.com/content/ccc/resource/technical/document/programming_manual/f7/7e/b9/a8/31/58/41/7b/CD00233952.pdf/files/CD00233952.pdf/jcr:content/translations/en.CD00233952.pdf</a></td>
+</tr></tbody>
+</table>
+<div class="system-messages section">
+<h2>Docutils System Messages</h2>
+<div class="system-message" id="id7">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line 51); <em><a href="#id8">backlink</a></em></p>
+Unknown target name: "fm".</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/radare2/" rel="tag">radare2</a></li>
+            <li><a class="tag p-category" href="../../categories/reverse-engineering/" rel="tag">reverse engineering</a></li>
+            <li><a class="tag p-category" href="../../categories/tech/" rel="tag">tech</a></li>
+        </ul></nav></aside></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:mike.mattice+ditw@gmail.com">Mike Mattice</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76460414-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
